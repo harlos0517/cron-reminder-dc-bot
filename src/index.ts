@@ -56,7 +56,7 @@ const updateReminder = async(message: Message) => {
   if (
     !cronExp.startsWith('`') ||
     !cronExp.endsWith('`') ||
-    !cron.validate(cronExp)
+    !cron.validate(cronExp.slice(1, -1))
   ) {
     message.react('❌')
     return
