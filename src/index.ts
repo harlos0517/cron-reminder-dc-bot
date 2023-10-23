@@ -52,15 +52,17 @@ const updateReminder = async(message: Message) => {
   await message.reactions.removeAll()
   deleteReminderfromMessage(message)
 
-  const [cronExp, reminderContent] = message.content.split('\n', 2)
+  const [rawCronExp, reminderContent] = message.content.split('\n', 2)
+  const cronExp = rawCronExp.slice(1, -1)
   if (
-    !cronExp.startsWith('`') ||
-    !cronExp.endsWith('`') ||
-    !cron.validate(cronExp.slice(1, -1))
+    !rawCronExp.startsWith('`') ||
+    !rawCronExp.endsWith('`') ||
+    !cron.validate(cronExp)
   ) {
     message.react('❌')
     return
   }
+
 
   const task = cron.schedule(cronExp, async() => {
     try {
