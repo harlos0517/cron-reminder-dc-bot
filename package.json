@@ -1,0 +1,33 @@
+{
+  "name": "cron-reminder-dc-bot",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "repository": "https://github.com/harlos0517/cron-reminder-dc-bot",
+  "author": "Harlos",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0 <17.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "node-cron": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.7",
+    "@types/node-cron": "^3.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.48.0",
+    "eslint-plugin-eqeqeq-fix": "^1.0.3",
+    "tsx": "^3.13.0",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "dev": "yarn typecheck && tsx watch src/index.ts",
+    "production": "yarn typecheck && tsx src/index.ts"
+  }
+}
