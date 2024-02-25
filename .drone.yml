@@ -1,0 +1,23 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+trigger:
+  branch:
+    - master
+
+steps:
+  - name: install
+    image: node:16
+    commands:
+      - node -v
+      - npm -v
+      - yarn --version
+      - yarn install
+
+  - name: production
+    image: node:16
+    commands:
+      - yarn production
+
