@@ -20,7 +20,11 @@ steps:
     image: node:16
     volumes:
       - name: env-volume
-        path: /home/harlos/projects/cron-reminder-dc-bot/.env
+        path: ${DRONE_WORKSPACE}/.env
     commands:
       - yarn production
 
+volumes:
+  - name: env-volume
+    host:
+      path: /home/harlos/projects/cron-reminder-dc-bot/.env
