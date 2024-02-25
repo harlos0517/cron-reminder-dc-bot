@@ -8,23 +8,11 @@ trigger:
     - master
 
 steps:
-  - name: install
-    image: node:16
-    commands:
-      - node -v
-      - npm -v
-      - yarn --version
-      - yarn install
-
-  - name: production
-    image: node:16
-    environment:
-      BOT_TOKEN:
-        from_secret: BOT_TOKEN
-      CRON_CHANNEL_ID:
-        from_secret: CRON_CHANNEL_ID
-      REMINDER_CHANNEL_ID:
-        from_secret: REMINDER_CHANNEL_ID
-    commands:
-      - yarn production
-
+  - name: docker
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: harlos0517/cron-reminder-dc-bot
