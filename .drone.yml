@@ -18,13 +18,13 @@ steps:
 
   - name: production
     image: node:16
-    volumes:
-      - name: env-volume
-        path: ${DRONE_WORKSPACE}/.env
+    environment:
+      BOT_TOKEN:
+        from_secret: BOT_TOKEN
+      CRON_CHANNEL_ID:
+        from_secret: CRON_CHANNEL_ID
+      REMINDER_CHANNEL_ID:
+        from_secret: REMINDER_CHANNEL_ID
     commands:
       - yarn production
 
-volumes:
-  - name: env-volume
-    host:
-      path: /home/harlos/projects/cron-reminder-dc-bot/.env
