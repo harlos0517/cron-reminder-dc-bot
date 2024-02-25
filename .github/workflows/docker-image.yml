@@ -15,4 +15,4 @@ jobs:
     - name: Build the Docker image
       run: docker build -t harlos0517/cron-reminder-dc-bot .
     - name: Run Docker container
-      run: docker run -d --name harlos0517/cron-reminder-dc-bot harlos0517/cron-reminder-dc-bot
+      run: docker run -d --name cron-reminder-dc-bot harlos0517/cron-reminder-dc-bot
