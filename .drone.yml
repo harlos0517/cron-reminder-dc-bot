@@ -15,4 +15,4 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: harlos0517/cron-reminder-dc-bot
+      repo: harlos/cron-reminder-dc-bot
