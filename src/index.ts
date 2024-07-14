@@ -73,7 +73,7 @@ const updateReminder = async(message: Message) => {
       console.error(`Reminder "${reminderContent}" failed sending!`)
       console.error(err)
     }
-  })
+  }, { timezone: process.env.TIMEZONE })
   reminders.set(message.id, {
     cronExp,
     content: reminderContent,
